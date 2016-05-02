@@ -17,6 +17,21 @@ class Flyer
   1.upto(5) do |count|
     flyers << Flyer.new("Flyer #{count}", "flyer#{count}@example.com", count*1000)
   end
-    puts flyers
 
+  total = 0
+
+  flyers.each do |count|
+    total += count.miles_flown
+  end
+
+  puts "Total miles flown: #{total}"
+
+  promotions = { "United" => 1.5, "Delta" => 2.0, "Lufthansa" => 2.5 }
+
+
+  flyers.each do |flyer|
+    promotions.each do |airline, multiplier|
+      puts "#{flyer.name} could earn #{multiplier}x miles by flying #{airline}!"
+    end
+  end
 end
